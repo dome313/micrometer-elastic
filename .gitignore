@@ -1,0 +1,11 @@
+.classpath
+.project
+.settings/
+target/
+*.iml
+.idea/
+classes/
+*.DS_Store
+build
+.gradle
+node_modules/
