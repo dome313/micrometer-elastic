@@ -10,3 +10,5 @@ Only empty documents are sent to elastic
     "_score": 1.0
 }
 ```
+
+This behaviour is explained here: https://stackoverflow.com/a/57430154/1587910
