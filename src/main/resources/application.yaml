@@ -1,0 +1,13 @@
+logging:
+  level:
+    io.micrometer: DEBUG
+
+management:
+  metrics:
+    export:
+      simple:
+        mode: step
+  endpoints:
+    web:
+      exposure:
+        include: "*"
