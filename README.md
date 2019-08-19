@@ -35,4 +35,3 @@ RUn it as
 ```
  ./poll-actuator-metrics.sh 120 8080
 ```
-This behaviour is explained here: https://stackoverflow.com/a/57430154/1587910
