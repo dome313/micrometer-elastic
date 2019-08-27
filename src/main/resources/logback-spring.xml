@@ -1,0 +1,32 @@
+<configuration>
+    <springProperty scope="context" name="application" source="unknown" defaultValue="demo" />
+    <property name="encoderPattern" value="%d{yy-MM-dd E HH:mm:ss.SSS} %-5p --- [%15.15t] [%X{X-B3-TraceId:-}, %X{X-B3-SpanId:-}] %c{2} - %m%n"/>
+
+    <appender name="COMMON-FILE-ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:\tmp\logs\demo\filebeat-demo.log</file>
+
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:\tmp\logs\demo\archived\demo.%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+
+            <maxFileSize>10MB</maxFileSize>
+            <totalSizeCap>20GB</totalSizeCap>
+            <maxHistory>60</maxHistory>
+        </rollingPolicy>
+
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <provider class="net.logstash.logback.composite.loggingevent.ArgumentsJsonProvider"/>
+        </encoder>
+
+    </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${encoderPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="COMMON-FILE-ROLLING"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
