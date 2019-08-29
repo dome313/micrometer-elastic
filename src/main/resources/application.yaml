@@ -12,3 +12,7 @@ management:
     web:
       exposure:
         include: "*"
+
+server:
+  tomcat:
+    max-threads: 1000

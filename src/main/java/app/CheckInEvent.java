@@ -1,6 +1,6 @@
 package app;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Random;
 import lombok.Data;
 import lombok.ToString;
@@ -22,7 +22,6 @@ public class CheckInEvent {
 
   private String from;
   private String to;
-  @JsonIgnore
   private String mobileNumber;
   private String result;
 
@@ -53,6 +52,7 @@ public class CheckInEvent {
 
 
   @ToString.Include(name = "mobileNumber")
+  @JsonProperty("mobileNumber")
   private String mobileNumberToString() {
     return mobileNumber.replaceAll("\\d(?=(?:\\D*\\d){3})", "*");
   }
